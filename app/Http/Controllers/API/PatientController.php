@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Patient;
 use App\Http\Requests\SavePatientRequest;
+use App\Http\Requests\UpdatePatientRequest;
 
 class PatientController extends Controller
 {
@@ -55,9 +56,13 @@ class PatientController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdatePatientRequest $request, Patient $paciente)
     {
-        //
+        $paciente->update($request->all());
+        return response()->json([
+            'result' => true,
+            'patient' => $paciente
+        ]);
     }
 
     /**

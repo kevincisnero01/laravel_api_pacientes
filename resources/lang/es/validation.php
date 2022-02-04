@@ -147,6 +147,7 @@ return [
     */
 
     'attributes' => [
+        'CI' => 'cedula',
         'names' => 'nombres',
         'last_names' => 'apellidos',
         'age' => 'edad',
