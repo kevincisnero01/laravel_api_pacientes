@@ -2,6 +2,7 @@
 
 namespace App\Exceptions;
 
+use Illuminate\Validation\ValidationException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Throwable;
 
@@ -37,5 +38,13 @@ class Handler extends ExceptionHandler
         $this->reportable(function (Throwable $e) {
             //
         });
+    }
+
+    protected function invalidJson($request, ValidationException $exception)
+    {
+        return response()->json([
+            'message' => __('Los datos proporcionados no son validos.'),
+            'errors' => $exception->errors(),
+        ], $exception->status);
     }
 }
