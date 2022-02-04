@@ -14,7 +14,7 @@ class Patient extends Model
     'last_names' ,
     'age' ,
     'gender' ,
-    'ci' ,
+    'CI' ,
     'blood_type' ,
     'phone' ,
     'email' ,
@@ -25,6 +25,4 @@ class Patient extends Model
         'created_at',
         'updated_at'
     ];
-
-    public $timestamps = false;
 }

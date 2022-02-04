@@ -29,8 +29,8 @@ class PatientController extends Controller
     {
         Patient::create($request->all());
         return response()->json([
-            'res' => true,
-            'msg' => "El Paciente fue registrado correctamente"
+            'result' => true,
+            'message' => "El Paciente fue registrado correctamente."
         ]);
     }
 
