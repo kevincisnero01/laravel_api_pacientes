@@ -28,7 +28,7 @@ class SavePatientRequest extends FormRequest
             'last_names' => 'required' ,
             'age' => 'required' ,
             'gender' => 'required' ,
-            'CI'  => 'required|unique:patients,ci',
+            'cedula'  => 'required|unique:patients,cedula',
             'blood_type' => 'required' ,
             'phone'  => 'required',
             'email'  => 'required',

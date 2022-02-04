@@ -28,7 +28,7 @@ class UpdatePatientRequest extends FormRequest
             'last_names' => 'required' ,
             'age' => 'required' ,
             'gender' => 'required' ,
-            'CI'  => 'required|unique:patients,CI,'.$this->route('paciente')->id,
+            'cedula'  => 'required|unique:patients,cedula,'.$this->route('paciente')->id,
             'blood_type' => 'required' ,
             'phone'  => 'required',
             'email'  => 'required',

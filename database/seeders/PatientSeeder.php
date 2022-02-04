@@ -20,7 +20,7 @@ class PatientSeeder extends Seeder
             'last_names' => 'Gamarra Ortiz',
             'age' => 31,
             'gender' => 'Masculino',
-            'CI' => 19123654,
+            'cedula' => 19123654,
             'blood_type' => 'A+',
             'phone' => 4123404787,
             'email' => 'alex@gmail.com',
@@ -33,7 +33,7 @@ class PatientSeeder extends Seeder
             'last_names' => 'Gamboa Torres',
             'age' => 26,
             'gender' => 'Femenino',
-            'CI' => 24123654,
+            'cedula' => 24123654,
             'blood_type' => 'A-',
             'phone' => 4121234787,
             'email' => 'maria@gmail.com',
@@ -46,7 +46,7 @@ class PatientSeeder extends Seeder
             'last_names' => 'Ramirez Mora',
             'age' => 28,
             'gender' => 'Masculino',
-            'CI' => 22123654,
+            'cedula' => 22123654,
             'blood_type' => 'A+',
             'phone' => 4161234787,
             'email' => 'juan@gmail.com',
@@ -59,14 +59,40 @@ class PatientSeeder extends Seeder
             'last_names' => 'Lazaro Guzman',
             'age' => 28,
             'gender' => 'Femenino',
-            'CI' => 23123654,
+            'cedula' => 23123654,
             'blood_type' => 'A-',
             'phone' => 4141234787,
             'email' => 'genesis@gmail.com',
             'address' => 'Centro norte Casa 7',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s')
-            ]
+            ],
+            [
+                'names' => 'Carlos Eduardo',
+                'last_names' => 'Acosta Guzman',
+                'age' => 25,
+                'gender' => 'Masculino',
+                'cedula' => 24123654,
+                'blood_type' => 'A-',
+                'phone' => 4161234787,
+                'email' => 'carlos@gmail.com',
+                'address' => 'Tejeria Centro Casa 1',
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s')
+            ],
+            [
+                'names' => 'Valeria Maria',
+                'last_names' => 'Guitierrez Campo',
+                'age' => 26,
+                'gender' => 'Femenino',
+                'cedula' => 25123654,
+                'blood_type' => 'A-',
+                'phone' => 4141234787,
+                'email' => 'valeria@gmail.com',
+                'address' => 'Centro Carlos Blanck Casa 1',
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s')
+                ]
         ]);
     }
 }

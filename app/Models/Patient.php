@@ -14,7 +14,7 @@ class Patient extends Model
     'last_names' ,
     'age' ,
     'gender' ,
-    'CI' ,
+    'cedula' ,
     'blood_type' ,
     'phone' ,
     'email' ,

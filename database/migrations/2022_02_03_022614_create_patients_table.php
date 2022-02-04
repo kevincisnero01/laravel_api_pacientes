@@ -19,7 +19,7 @@ class CreatePatientsTable extends Migration
             $table->string('last_names');
             $table->string('age')->nullable();
             $table->string('gender');
-            $table->string('CI',8);
+            $table->string('cedula',8);
             $table->string('blood_type')->nullable();
             $table->string('phone',10);
             $table->string('email');
