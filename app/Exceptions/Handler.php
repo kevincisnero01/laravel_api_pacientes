@@ -2,6 +2,7 @@
 
 namespace App\Exceptions;
 
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Throwable;
@@ -47,4 +48,17 @@ class Handler extends ExceptionHandler
             'errors' => $exception->errors(),
         ], $exception->status);
     }
+
+    public function render($request, Throwable $exception)
+    {
+        if($exception instanceof ModelNotFoundException)
+        {
+            return response()->json([
+                'result' => false,
+                'message' => 'Modelo no encontrado'
+            ],400);
+        }
+        return Parent::render($request, $exception);
+    }
+
 }
