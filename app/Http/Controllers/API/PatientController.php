@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Patient;
+use App\Http\Requests\SavePatientRequest;
 
 class PatientController extends Controller
 {
@@ -24,9 +25,13 @@ class PatientController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(SavePatientRequest $request)
     {
-        //
+        Patient::create($request->all());
+        return response()->json([
+            'res' => true,
+            'msg' => "El Paciente fue registrado correctamente"
+        ]);
     }
 
     /**
