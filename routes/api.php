@@ -10,6 +10,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('/pacientes', [PatientController::class, 'index']);
 Route::post('/pacientes', [PatientController::class, 'store']);
-Route::get('/pacientes/{paciente}', [PatientController::class, 'show']);
-Route::put('/pacientes/{paciente}', [PatientController::class, 'update']);
-Route::delete('/pacientes/{paciente}', [PatientController::class, 'destroy']);
+Route::get('/pacientes/{patient}', [PatientController::class, 'show']);
+Route::put('/pacientes/{patient}', [PatientController::class, 'update']);
+Route::delete('/pacientes/{patient}', [PatientController::class, 'destroy']);

@@ -5,79 +5,40 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Patient;
+use App\Http\Resources\PatientResource;
 use App\Http\Requests\SavePatientRequest;
 use App\Http\Requests\UpdatePatientRequest;
 
 class PatientController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
-        return Patient::all();
+        return PatientResource::collection(Patient::all());
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(SavePatientRequest $request)
     {
-        Patient::create($request->all());
-        return response()->json([
-            'result' => true,
-            'message' => "El Paciente fue registrado correctamente."
-        ]);
+        return (new PatientResource(Patient::create($request->all())))
+        ->additional(['message' => 'Paciente registrado correctamente.']);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Patient $paciente)
+    public function show(Patient $patient)
     {
-        return response()->json([
-            'result' => true,
-            'patient' => $paciente
-        ],200);
+        return new PatientResource($patient);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(UpdatePatientRequest $request, Patient $paciente)
+    public function update(UpdatePatientRequest $request, Patient $patient)
     {
-        $paciente->update($request->all());
-        return response()->json([
-            'result' => true,
-            'patient' => $paciente
-        ]);
+        $patient->update($request->all());
+        return (new PatientResource($patient))
+        ->additional(['message' => 'Paciente actualizado correctamente.']);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Patient $paciente)
+    public function destroy(Patient $patient)
     {
-        $paciente->delete();
-        return response()->json([
-            'result' => true,
-            'message' => 'Paciente eliminado correctamente',
-            'patient' => $paciente
-        ]);
+        $patient->delete();
+        return (new PatientResource($patient))
+        ->additional(['message' => 'Paciente eliminado correctamente.']);
     }
 }
